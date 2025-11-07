@@ -9,8 +9,22 @@ export default function Chat({ socket, roomId }) {
   useEffect(() => {
     if (!socket) return;
 
+    // Запрос разрешения на уведомления
+    if (Notification.permission === 'default') {
+      Notification.requestPermission();
+    }
+
     const handleNewMessage = (data) => {
       setMessages(prev => [...prev, data]);
+
+      // Показываем уведомление, если это не твоё сообщение
+      if (Notification.permission === 'granted') {
+        new Notification(`${data.username}: ${data.message}`);
+      }
+
+      // Проигрываем звук при новом сообщении
+      const audio = new Audio('/notification.mp3');
+      audio.play().catch(e => console.log("Audio play failed:", e));
     };
 
     socket.on('new_message', handleNewMessage);
@@ -53,8 +67,11 @@ export default function Chat({ socket, roomId }) {
       <Typography variant="h6" style={{ color: 'gold' }}>Chat</Typography>
       <List style={{ overflowY: 'auto', flex: 1, color: 'white' }}>
         {messages.map((msg, index) => (
-          <ListItem key={index} style={{ display: 'block', color: 'white' }}>
-            <strong style={{ color: msg.isOwn ? 'lightgreen' : 'white' }}>{msg.username}:</strong> {msg.message}
+          <ListItem key={index} style={{ display: 'flex', alignItems: 'center', color: 'white' }}>
+            <img src={msg.avatar || 'default-avatar.png'} alt="avatar" style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '10px' }} />
+            <div>
+              <strong style={{ color: 'white' }}>{msg.username}:</strong> {msg.message}
+            </div>
           </ListItem>
         ))}
         <div ref={messagesEndRef} />

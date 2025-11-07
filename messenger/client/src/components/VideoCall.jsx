@@ -11,19 +11,31 @@ let localStream;
 const configuration = {
   iceServers: [
     { urls: 'stun:stun.l.google.com:19302' },
-    { urls: 'turn:your-server-ip:3478', username: 'user1', credential: 'password1' }
+    {
+      urls: `turn:${process.env.REACT_APP_TURN_SERVER}:3478`,
+      username: process.env.REACT_APP_TURN_USERNAME,
+      credential: process.env.REACT_APP_TURN_PASSWORD
+    }
   ]
 };
 
 export default function VideoCall() {
   const { roomId } = useParams();
   const [isVideoEnabled, setIsVideoEnabled] = useState(true);
+  const [isAudioEnabled, setIsAudioEnabled] = useState(true);
   const localVideoRef = useRef();
   const remoteVideoRef = useRef();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    socket = io('http://localhost:3001');
+    socket = io('http://localhost:3001', { transports: ['websocket'] });
+
+    socket.on('disconnect', () => {
+      console.log('Disconnected, attempting to reconnect...');
+      setTimeout(() => {
+        socket.connect();
+      }, 3000);
+    });
 
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then(stream => {
@@ -84,6 +96,14 @@ export default function VideoCall() {
     }
   };
 
+  const toggleMicrophone = () => {
+    const audioTrack = localStream.getAudioTracks()[0];
+    if (audioTrack) {
+      audioTrack.enabled = !audioTrack.enabled;
+      setIsAudioEnabled(audioTrack.enabled);
+    }
+  };
+
   return (
     <Container maxWidth={false} style={{ background: '#2e2e2e', height: '100vh', padding: '20px' }}>
       <Box display="flex" justifyContent="space-between" mb={2}>
@@ -92,6 +112,21 @@ export default function VideoCall() {
       </Box>
 
       <Box display="flex" justifyContent="center" mb={2}>
+        <Button
+          variant="contained"
+          onClick={toggleMicrophone}
+          style={{
+            backgroundColor: isAudioEnabled ? '#4CAF50' : '#f44336',
+            color: 'white',
+            padding: '10px 20px',
+            borderRadius: '30px',
+            fontWeight: 'bold',
+            textTransform: 'none',
+            marginRight: '10px'
+          }}
+        >
+          {isAudioEnabled ? 'Disable Mic' : 'Enable Mic'}
+        </Button>
         <Button
           variant="contained"
           onClick={toggleCamera}
