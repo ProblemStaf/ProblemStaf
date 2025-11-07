@@ -1,0 +1,12 @@
+
+services:
+  coturn:
+    image: coturn/coturn
+    container_name: coturn
+    ports:
+      - "3478:3478/tcp"
+      - "3478:3478/udp"
+      - "5349:5349/tcp"
+      - "5349:5349/udp"
+      - "60000-60100:60000-60100/udp"
+    command: --no-multicast-peers --listening-port 3478 --tls-listening-port 5349 --min-port=60000 --max-port=60100 --user=user1:password1 --realm=yourdomain.com

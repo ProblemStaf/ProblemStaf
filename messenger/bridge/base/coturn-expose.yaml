@@ -1,0 +1,324 @@
+#! coturn-expose.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: coturn
+    namespace: messenger
+    labels:
+        com.docker.compose.project: messenger
+        com.docker.compose.service: coturn
+spec:
+    selector:
+        com.docker.compose.project: messenger
+        com.docker.compose.service: coturn
+    ports:
+        - name: coturn-60013
+          port: 60013
+          targetPort: coturn-60013
+        - name: coturn-60014
+          port: 60014
+          targetPort: coturn-60014
+        - name: coturn-60031
+          port: 60031
+          targetPort: coturn-60031
+        - name: coturn-60033
+          port: 60033
+          targetPort: coturn-60033
+        - name: coturn-60054
+          port: 60054
+          targetPort: coturn-60054
+        - name: coturn-60059
+          port: 60059
+          targetPort: coturn-60059
+        - name: coturn-60092
+          port: 60092
+          targetPort: coturn-60092
+        - name: coturn-60093
+          port: 60093
+          targetPort: coturn-60093
+        - name: coturn-60036
+          port: 60036
+          targetPort: coturn-60036
+        - name: coturn-60039
+          port: 60039
+          targetPort: coturn-60039
+        - name: coturn-60058
+          port: 60058
+          targetPort: coturn-60058
+        - name: coturn-60062
+          port: 60062
+          targetPort: coturn-60062
+        - name: coturn-60077
+          port: 60077
+          targetPort: coturn-60077
+        - name: coturn-60087
+          port: 60087
+          targetPort: coturn-60087
+        - name: coturn-5349
+          port: 5349
+          targetPort: coturn-5349
+        - name: coturn-60041
+          port: 60041
+          targetPort: coturn-60041
+        - name: coturn-60073
+          port: 60073
+          targetPort: coturn-60073
+        - name: coturn-60080
+          port: 60080
+          targetPort: coturn-60080
+        - name: coturn-60037
+          port: 60037
+          targetPort: coturn-60037
+        - name: coturn-60009
+          port: 60009
+          targetPort: coturn-60009
+        - name: coturn-60032
+          port: 60032
+          targetPort: coturn-60032
+        - name: coturn-60082
+          port: 60082
+          targetPort: coturn-60082
+        - name: coturn-60086
+          port: 60086
+          targetPort: coturn-60086
+        - name: coturn-60094
+          port: 60094
+          targetPort: coturn-60094
+        - name: coturn-60095
+          port: 60095
+          targetPort: coturn-60095
+        - name: coturn-60010
+          port: 60010
+          targetPort: coturn-60010
+        - name: coturn-60035
+          port: 60035
+          targetPort: coturn-60035
+        - name: coturn-60051
+          port: 60051
+          targetPort: coturn-60051
+        - name: coturn-60076
+          port: 60076
+          targetPort: coturn-60076
+        - name: coturn-60096
+          port: 60096
+          targetPort: coturn-60096
+        - name: coturn-60008
+          port: 60008
+          targetPort: coturn-60008
+        - name: coturn-60042
+          port: 60042
+          targetPort: coturn-60042
+        - name: coturn-60044
+          port: 60044
+          targetPort: coturn-60044
+        - name: coturn-60045
+          port: 60045
+          targetPort: coturn-60045
+        - name: coturn-60068
+          port: 60068
+          targetPort: coturn-60068
+        - name: coturn-60079
+          port: 60079
+          targetPort: coturn-60079
+        - name: coturn-60085
+          port: 60085
+          targetPort: coturn-60085
+        - name: coturn-60091
+          port: 60091
+          targetPort: coturn-60091
+        - name: coturn-60000
+          port: 60000
+          targetPort: coturn-60000
+        - name: coturn-60015
+          port: 60015
+          targetPort: coturn-60015
+        - name: coturn-60025
+          port: 60025
+          targetPort: coturn-60025
+        - name: coturn-60028
+          port: 60028
+          targetPort: coturn-60028
+        - name: coturn-60029
+          port: 60029
+          targetPort: coturn-60029
+        - name: coturn-60083
+          port: 60083
+          targetPort: coturn-60083
+        - name: coturn-60097
+          port: 60097
+          targetPort: coturn-60097
+        - name: coturn-60001
+          port: 60001
+          targetPort: coturn-60001
+        - name: coturn-60003
+          port: 60003
+          targetPort: coturn-60003
+        - name: coturn-60005
+          port: 60005
+          targetPort: coturn-60005
+        - name: coturn-60006
+          port: 60006
+          targetPort: coturn-60006
+        - name: coturn-60019
+          port: 60019
+          targetPort: coturn-60019
+        - name: coturn-60023
+          port: 60023
+          targetPort: coturn-60023
+        - name: coturn-60030
+          port: 60030
+          targetPort: coturn-60030
+        - name: coturn-60040
+          port: 60040
+          targetPort: coturn-60040
+        - name: coturn-60016
+          port: 60016
+          targetPort: coturn-60016
+        - name: coturn-60017
+          port: 60017
+          targetPort: coturn-60017
+        - name: coturn-60018
+          port: 60018
+          targetPort: coturn-60018
+        - name: coturn-60022
+          port: 60022
+          targetPort: coturn-60022
+        - name: coturn-60024
+          port: 60024
+          targetPort: coturn-60024
+        - name: coturn-60027
+          port: 60027
+          targetPort: coturn-60027
+        - name: coturn-60049
+          port: 60049
+          targetPort: coturn-60049
+        - name: coturn-60052
+          port: 60052
+          targetPort: coturn-60052
+        - name: coturn-60020
+          port: 60020
+          targetPort: coturn-60020
+        - name: coturn-60034
+          port: 60034
+          targetPort: coturn-60034
+        - name: coturn-60043
+          port: 60043
+          targetPort: coturn-60043
+        - name: coturn-60053
+          port: 60053
+          targetPort: coturn-60053
+        - name: coturn-60061
+          port: 60061
+          targetPort: coturn-60061
+        - name: coturn-60063
+          port: 60063
+          targetPort: coturn-60063
+        - name: coturn-60072
+          port: 60072
+          targetPort: coturn-60072
+        - name: coturn-60074
+          port: 60074
+          targetPort: coturn-60074
+        - name: coturn-60004
+          port: 60004
+          targetPort: coturn-60004
+        - name: coturn-60012
+          port: 60012
+          targetPort: coturn-60012
+        - name: coturn-60021
+          port: 60021
+          targetPort: coturn-60021
+        - name: coturn-60038
+          port: 60038
+          targetPort: coturn-60038
+        - name: coturn-60046
+          port: 60046
+          targetPort: coturn-60046
+        - name: coturn-60047
+          port: 60047
+          targetPort: coturn-60047
+        - name: coturn-60050
+          port: 60050
+          targetPort: coturn-60050
+        - name: coturn-60055
+          port: 60055
+          targetPort: coturn-60055
+        - name: coturn-60060
+          port: 60060
+          targetPort: coturn-60060
+        - name: coturn-60065
+          port: 60065
+          targetPort: coturn-60065
+        - name: coturn-60067
+          port: 60067
+          targetPort: coturn-60067
+        - name: coturn-60081
+          port: 60081
+          targetPort: coturn-60081
+        - name: coturn-60084
+          port: 60084
+          targetPort: coturn-60084
+        - name: coturn-60098
+          port: 60098
+          targetPort: coturn-60098
+        - name: coturn-60011
+          port: 60011
+          targetPort: coturn-60011
+        - name: coturn-60026
+          port: 60026
+          targetPort: coturn-60026
+        - name: coturn-60057
+          port: 60057
+          targetPort: coturn-60057
+        - name: coturn-60071
+          port: 60071
+          targetPort: coturn-60071
+        - name: coturn-60075
+          port: 60075
+          targetPort: coturn-60075
+        - name: coturn-60078
+          port: 60078
+          targetPort: coturn-60078
+        - name: coturn-60088
+          port: 60088
+          targetPort: coturn-60088
+        - name: coturn-60089
+          port: 60089
+          targetPort: coturn-60089
+        - name: coturn-60007
+          port: 60007
+          targetPort: coturn-60007
+        - name: coturn-60048
+          port: 60048
+          targetPort: coturn-60048
+        - name: coturn-60056
+          port: 60056
+          targetPort: coturn-60056
+        - name: coturn-60064
+          port: 60064
+          targetPort: coturn-60064
+        - name: coturn-60066
+          port: 60066
+          targetPort: coturn-60066
+        - name: coturn-60069
+          port: 60069
+          targetPort: coturn-60069
+        - name: coturn-60090
+          port: 60090
+          targetPort: coturn-60090
+        - name: coturn-60100
+          port: 60100
+          targetPort: coturn-60100
+        - name: coturn-3478
+          port: 3478
+          targetPort: coturn-3478
+        - name: coturn-60002
+          port: 60002
+          targetPort: coturn-60002
+        - name: coturn-60070
+          port: 60070
+          targetPort: coturn-60070
+        - name: coturn-60099
+          port: 60099
+          targetPort: coturn-60099

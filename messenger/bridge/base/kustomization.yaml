@@ -1,0 +1,20 @@
+#! kustomization.yaml
+# Generated code, do not edit
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    - 0-messenger-namespace.yaml
+    - client-deployment.yaml
+    - client-expose.yaml
+    - client-service.yaml
+    - coturn-deployment.yaml
+    - coturn-expose.yaml
+    - coturn-service.yaml
+    - default-network-policy.yaml
+    - mongodb-deployment.yaml
+    - mongodb-expose.yaml
+    - mongodb-mongodb_data-persistentVolumeClaim.yaml
+    - mongodb-service.yaml
+    - server-deployment.yaml
+    - server-expose.yaml
+    - server-service.yaml

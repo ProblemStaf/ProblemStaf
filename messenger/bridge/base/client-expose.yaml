@@ -1,0 +1,18 @@
+#! client-expose.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: client
+    namespace: messenger
+    labels:
+        com.docker.compose.project: messenger
+        com.docker.compose.service: client
+spec:
+    selector:
+        com.docker.compose.project: messenger
+        com.docker.compose.service: client
+    ports:
+        - name: client-3000
+          port: 3000
+          targetPort: client-3000

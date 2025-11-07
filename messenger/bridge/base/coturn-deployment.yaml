@@ -1,0 +1,246 @@
+#! coturn-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: coturn
+    namespace: messenger
+    labels:
+        com.docker.compose.project: messenger
+        com.docker.compose.service: coturn
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: messenger
+            com.docker.compose.service: coturn
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: messenger
+                com.docker.compose.service: coturn
+                com.docker.compose.network.default: "true"
+        spec:
+            containers:
+                - name: coturn
+                  image: coturn/coturn
+                  imagePullPolicy: IfNotPresent
+                  args:
+                    - --no-multicast-peers
+                    - --listening-port
+                    - 3478
+                    - --tls-listening-port
+                    - 5349
+                    - --min-port=60000
+                    - --max-port=60100
+                    - --user=user1:password1
+                    - --realm=yourdomain.com
+                  ports:
+                    - name: coturn-60013
+                      containerPort: 60013
+                    - name: coturn-60014
+                      containerPort: 60014
+                    - name: coturn-60031
+                      containerPort: 60031
+                    - name: coturn-60033
+                      containerPort: 60033
+                    - name: coturn-60054
+                      containerPort: 60054
+                    - name: coturn-60059
+                      containerPort: 60059
+                    - name: coturn-60092
+                      containerPort: 60092
+                    - name: coturn-60093
+                      containerPort: 60093
+                    - name: coturn-60036
+                      containerPort: 60036
+                    - name: coturn-60039
+                      containerPort: 60039
+                    - name: coturn-60058
+                      containerPort: 60058
+                    - name: coturn-60062
+                      containerPort: 60062
+                    - name: coturn-60077
+                      containerPort: 60077
+                    - name: coturn-60087
+                      containerPort: 60087
+                    - name: coturn-5349
+                      containerPort: 5349
+                    - name: coturn-60041
+                      containerPort: 60041
+                    - name: coturn-60073
+                      containerPort: 60073
+                    - name: coturn-60080
+                      containerPort: 60080
+                    - name: coturn-60037
+                      containerPort: 60037
+                    - name: coturn-60009
+                      containerPort: 60009
+                    - name: coturn-60032
+                      containerPort: 60032
+                    - name: coturn-60082
+                      containerPort: 60082
+                    - name: coturn-60086
+                      containerPort: 60086
+                    - name: coturn-60094
+                      containerPort: 60094
+                    - name: coturn-60095
+                      containerPort: 60095
+                    - name: coturn-60010
+                      containerPort: 60010
+                    - name: coturn-60035
+                      containerPort: 60035
+                    - name: coturn-60051
+                      containerPort: 60051
+                    - name: coturn-60076
+                      containerPort: 60076
+                    - name: coturn-60096
+                      containerPort: 60096
+                    - name: coturn-60008
+                      containerPort: 60008
+                    - name: coturn-60042
+                      containerPort: 60042
+                    - name: coturn-60044
+                      containerPort: 60044
+                    - name: coturn-60045
+                      containerPort: 60045
+                    - name: coturn-60068
+                      containerPort: 60068
+                    - name: coturn-60079
+                      containerPort: 60079
+                    - name: coturn-60085
+                      containerPort: 60085
+                    - name: coturn-60091
+                      containerPort: 60091
+                    - name: coturn-60000
+                      containerPort: 60000
+                    - name: coturn-60015
+                      containerPort: 60015
+                    - name: coturn-60025
+                      containerPort: 60025
+                    - name: coturn-60028
+                      containerPort: 60028
+                    - name: coturn-60029
+                      containerPort: 60029
+                    - name: coturn-60083
+                      containerPort: 60083
+                    - name: coturn-60097
+                      containerPort: 60097
+                    - name: coturn-60001
+                      containerPort: 60001
+                    - name: coturn-60003
+                      containerPort: 60003
+                    - name: coturn-60005
+                      containerPort: 60005
+                    - name: coturn-60006
+                      containerPort: 60006
+                    - name: coturn-60019
+                      containerPort: 60019
+                    - name: coturn-60023
+                      containerPort: 60023
+                    - name: coturn-60030
+                      containerPort: 60030
+                    - name: coturn-60040
+                      containerPort: 60040
+                    - name: coturn-60016
+                      containerPort: 60016
+                    - name: coturn-60017
+                      containerPort: 60017
+                    - name: coturn-60018
+                      containerPort: 60018
+                    - name: coturn-60022
+                      containerPort: 60022
+                    - name: coturn-60024
+                      containerPort: 60024
+                    - name: coturn-60027
+                      containerPort: 60027
+                    - name: coturn-60049
+                      containerPort: 60049
+                    - name: coturn-60052
+                      containerPort: 60052
+                    - name: coturn-60020
+                      containerPort: 60020
+                    - name: coturn-60034
+                      containerPort: 60034
+                    - name: coturn-60043
+                      containerPort: 60043
+                    - name: coturn-60053
+                      containerPort: 60053
+                    - name: coturn-60061
+                      containerPort: 60061
+                    - name: coturn-60063
+                      containerPort: 60063
+                    - name: coturn-60072
+                      containerPort: 60072
+                    - name: coturn-60074
+                      containerPort: 60074
+                    - name: coturn-60004
+                      containerPort: 60004
+                    - name: coturn-60012
+                      containerPort: 60012
+                    - name: coturn-60021
+                      containerPort: 60021
+                    - name: coturn-60038
+                      containerPort: 60038
+                    - name: coturn-60046
+                      containerPort: 60046
+                    - name: coturn-60047
+                      containerPort: 60047
+                    - name: coturn-60050
+                      containerPort: 60050
+                    - name: coturn-60055
+                      containerPort: 60055
+                    - name: coturn-60060
+                      containerPort: 60060
+                    - name: coturn-60065
+                      containerPort: 60065
+                    - name: coturn-60067
+                      containerPort: 60067
+                    - name: coturn-60081
+                      containerPort: 60081
+                    - name: coturn-60084
+                      containerPort: 60084
+                    - name: coturn-60098
+                      containerPort: 60098
+                    - name: coturn-60011
+                      containerPort: 60011
+                    - name: coturn-60026
+                      containerPort: 60026
+                    - name: coturn-60057
+                      containerPort: 60057
+                    - name: coturn-60071
+                      containerPort: 60071
+                    - name: coturn-60075
+                      containerPort: 60075
+                    - name: coturn-60078
+                      containerPort: 60078
+                    - name: coturn-60088
+                      containerPort: 60088
+                    - name: coturn-60089
+                      containerPort: 60089
+                    - name: coturn-60007
+                      containerPort: 60007
+                    - name: coturn-60048
+                      containerPort: 60048
+                    - name: coturn-60056
+                      containerPort: 60056
+                    - name: coturn-60064
+                      containerPort: 60064
+                    - name: coturn-60066
+                      containerPort: 60066
+                    - name: coturn-60069
+                      containerPort: 60069
+                    - name: coturn-60090
+                      containerPort: 60090
+                    - name: coturn-60100
+                      containerPort: 60100
+                    - name: coturn-3478
+                      containerPort: 3478
+                    - name: coturn-60002
+                      containerPort: 60002
+                    - name: coturn-60070
+                      containerPort: 60070
+                    - name: coturn-60099
+                      containerPort: 60099
